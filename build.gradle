@@ -1,0 +1,45 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.18'
+    id 'java'
+}
+
+apply plugin: 'java'
+
+java {
+    sourceCompatibility = '17'
+}
+
+project.ext {
+    lombokVersion = '1.18.30'
+    springBootVersion = '2.7.18'
+    telegramVersion = '5.0.1'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
+    implementation group: 'org.telegram', name: 'telegrambots', version: telegramVersion
+    implementation group: 'org.telegram', name: 'telegrambotsextensions', version: telegramVersion
+    //implementation group: 'org.projectlombok', name: 'lombok', version: lombokVersion
+
+    testImplementation group: 'org.springframework.boot', name :'spring-boot-starter-test', version: springBootVersion
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+wrapper {
+    gradleVersion = '8.10.2'
+}

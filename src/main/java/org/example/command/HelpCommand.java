@@ -1,0 +1,34 @@
+package org.example.command;
+
+import org.telegram.telegrambots.meta.api.objects.Chat;
+import org.telegram.telegrambots.meta.api.objects.User;
+import org.telegram.telegrambots.meta.bots.AbsSender;
+
+public class HelpCommand extends ServiceCommand {
+
+    public HelpCommand(String identifier, String description) {
+        super(identifier, description);
+    }
+
+    @Override
+    public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
+        String userName = (user.getUserName() != null) ? user.getUserName() :
+                String.format("%s %s", user.getLastName(), user.getFirstName());
+
+        sendAnswer(absSender, chat.getId(), this.getCommandIdentifier(), userName,
+                "Для поиска информации просто введите сообщение и нажмите кнопку отправить. " +
+                        "Например: классификация прихватов или действия при ГНВП. " + System.lineSeparator() + System.lineSeparator() +
+                        "Команда /gnvp: для расчета требуемой плотности бурового раствора по избыточному давлению введите команду " +
+                        "/gnvp и 3 числа без всяких разделителей и единиц измерения (пример /gnvp 1.0 1150 2345). " +
+                        "Первое число - избыточное давление в МПа. Второе число - текущая плотность бурового раствора в кг/м3. " +
+                        "Третье число - глубина скважины по вертикали в м." + System.lineSeparator() + System.lineSeparator() + "Команда /bpj: " +
+                        "для расчета объема скважины отправьте команду в виде: /bpj 3200 215.9 1.1 2100 168 8 2500 127 9.2 700 147 11 " +
+                        "без всяких разделителей и единиц измерения. Первое число - глубина скважины в м. Второе число - " +
+                        "диаметр долота в мм. Третье число - коэффициент кавернозности. Четвертое число - глубина спуска предыдущей " +
+                        "колонны (если предыдущей колонны нет - отправлять 0). Пятое число - наружный диаметр предыдущей колонны в мм " +
+                        "(если предыдущей колонны нет - отправлять 0). Шестое число - толщина стенки предыдущей колонны в мм " +
+                        "(если предыдущей колонны нет - отправлять 0). Далее идет информация по секциям труб начиная от долота: " +
+                        "длина секции труб в м, диаметр секции труб в мм, толщина секции труб в мм.");
+    }
+
+}
