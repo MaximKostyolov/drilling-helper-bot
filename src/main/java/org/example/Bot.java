@@ -1,10 +1,6 @@
 package org.example;
 
-import org.example.command.BPJCommand;
-import org.example.command.GNVPCommand;
-import org.example.command.HelpCommand;
-import org.example.command.NonCommand;
-import org.example.command.StartCommand;
+import org.example.command.*;
 import org.telegram.telegrambots.extensions.bots.commandbot.TelegramLongPollingCommandBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
@@ -30,6 +26,7 @@ public final class Bot extends TelegramLongPollingCommandBot {
         register(new StartCommand("start", "Старт"));
         register(new GNVPCommand("gnvp", "Рассчитать требуемую плотность бурового раствора по избыточному давлению"));
         register(new BPJCommand("bpj", "Рассчитать объемы скважины, трубного и затрубного пространства"));
+        register(new PumpingTimeCommand("pumping", "Рассчитать время прокачки пачки"));
         register(new HelpCommand("help", "Помощь"));
     }
 
