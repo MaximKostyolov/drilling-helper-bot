@@ -31,10 +31,13 @@ public class GNVPCommand extends ServiceCommand {
                 String result = "Получены данные: избыточное давление - " + pressure + " МПа; текущая плотность бурового раствора - " +
                         destiny + " кг/м3; глубина скважины по вертикали - " + h + " м.";
 
-                double resultDestiny = (pressure * 1000000 + destiny * h * 9.81) / (h * 9.81);
+                double K_bez = h <= 1200 ? 1.1 : 1.05;
+                double resultDestiny = (K_bez * pressure * 1000000 + destiny * h * 9.81) / (h * 9.81);
                 DecimalFormat df = new DecimalFormat("#.##");
                 String roundedDestiny = df.format(resultDestiny);
-                result = result + System.lineSeparator() + System.lineSeparator() + "Требуемая плотность бурового раствора: " + roundedDestiny + " кг/м3";
+
+                result = result + System.lineSeparator() + System.lineSeparator() + "Коэффициент безопасности: " + K_bez +
+                        " Требуемая плотность бурового раствора с учетом коэффициента безопасности: " + roundedDestiny + " кг/м3";
 
                 if (resultDestiny > 1500) {
                     result = result + " Требуемая плотность более 1500 кг/м3 - пожалуйста проверьте входные данные";

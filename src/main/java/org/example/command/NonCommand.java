@@ -9,6 +9,8 @@ public class NonCommand {
         String answer;
         try {
             answer = "Получен запрос: " + text;
+            answer = answer + System.lineSeparator() + "К сожалению, данная функция находится еще на стадии разработки. " +
+            "Воспользуйтесь пока другими функциями бота (команды /gnvp, /bpj, /pumping)";
         } catch (Exception e) {
             answer = "Простите, я не понимаю Вас. Возможно, Вам поможет /help";
         }

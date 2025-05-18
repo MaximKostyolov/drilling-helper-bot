@@ -17,12 +17,12 @@ public class StartCommand extends ServiceCommand {
     public void execute(AbsSender absSender, User user, Chat chat, String[] strings) {
         String userName = (user.getUserName() != null) ? user.getUserName() :
                 String.format("%s %s", user.getLastName(), user.getFirstName());
-        //обращаемся к методу суперкласса для отправки пользователю ответа
+
         sendAnswer(absSender, chat.getId(), this.getCommandIdentifier(), userName,
                 "Добро пожаловать в бот! Этот бот поможет вам найти информацию по бурению - просто введите интересующий вас запрос. " +
                         "Также бот может определить требуемую плотность бурового раствора по избыточному давлению при ГНВП (команда /gnvp), " +
                         "поможет посчитает объемы скважины, металла труб, трубного и затрубного пространства (команда /bpj), " +
-                        "поможет рассчитать вренмя прокачки пачек (команда /pumping). " +
+                        "поможет рассчитать время прокачки пачек (команда /pumping). " +
                         "Если Вам нужна помощь, нажмите /help");
     }
 

@@ -68,7 +68,7 @@ public class BPJCommand extends ServiceCommand {
                 double V_skv = ( (S_skv * (H_skv - dlinnaKolonny)) + (S_kol * dlinnaKolonny) );
                 DecimalFormat df = new DecimalFormat("#.##");
                 result.append(System.lineSeparator());
-                result.append(" Объем скважины без инструмента: ").append(df.format(V_skv)).append(" м3;");
+                result.append("Объем скважины без инструмента: ").append(df.format(V_skv)).append(" м3;");
 
                 if (!sekciaList.isEmpty()) {
                     double V_trub_pr = 0;
@@ -85,13 +85,14 @@ public class BPJCommand extends ServiceCommand {
 
                     if (result_L > H_skv) {
                         result.append(System.lineSeparator());
-                        result.append(" Внимание: суммарная длина секций труб превышает длину скважины - проверьте входные данные. " + "Расчет объемов производится для суммарной глубины спуска секций: ").append(result_L).append("м");
+                        result.append("Внимание: суммарная длина секций труб превышает длину скважины - проверьте входные данные. " +
+                                "Расчет объемов производится для суммарной глубины спуска секций: ").append(result_L).append("м");
                     }
                     result.append(System.lineSeparator());
-                    result.append(" Объем металла труб для глубины ").append(result_L).append("м : ").append(df.format(V_trub)).append(" м3;");
+                    result.append("Объем металла труб для глубины ").append(result_L).append("м : ").append(df.format(V_trub)).append(" м3;");
 
                     result.append(System.lineSeparator());
-                    result.append(" Объем трубного пространства: ").append(df.format(V_trub_pr)).append(" м3;");
+                    result.append("Объем трубного пространства: ").append(df.format(V_trub_pr)).append(" м3;");
 
                     if (result_L > dlinnaKolonny) {
                         float L_otkr_stv = result_L - dlinnaKolonny;
@@ -115,7 +116,7 @@ public class BPJCommand extends ServiceCommand {
                         }
                     }
                     result.append(System.lineSeparator());
-                    result.append(" Объем затрубного пространства: ").append(df.format(V_zatrub)).append(" м3;");
+                    result.append("Объем затрубного пространства: ").append(df.format(V_zatrub)).append(" м3;");
                 }
 
                 sendAnswer(absSender, chat.getId(), this.getCommandIdentifier(), userName, result.toString());
