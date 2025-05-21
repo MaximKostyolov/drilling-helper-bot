@@ -23,11 +23,11 @@ public final class Bot extends TelegramLongPollingCommandBot {
         //создаём вспомогательный класс для работы с сообщениями, не являющимися командами
         this.nonCommand = new NonCommand();
         //регистрируем команды
-        register(new StartCommand("start", "Старт"));
-        register(new GNVPCommand("gnvp", "Рассчитать требуемую плотность бурового раствора по избыточному давлению"));
-        register(new BPJCommand("bpj", "Рассчитать объемы скважины, трубного и затрубного пространства"));
-        register(new PumpingTimeCommand("pumping", "Рассчитать время прокачки пачки"));
-        register(new HelpCommand("help", "Помощь"));
+        register(new StartCommand("/start", "Старт"));
+        register(new GNVPCommand("/gnvp", "Рассчитать требуемую плотность бурового раствора по избыточному давлению"));
+        register(new BPJCommand("/bpj", "Рассчитать объемы скважины, трубного и затрубного пространства"));
+        register(new PumpingTimeCommand("/pumping", "Рассчитать время прокачки пачки"));
+        register(new HelpCommand("/help", "Помощь"));
     }
 
     @Override

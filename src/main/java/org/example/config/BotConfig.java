@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
 @Data
 public class BotConfig {
 
-    @Value("${bot.name:DrillingHelperBot}")
+    @Value("${bot.name}")
     private String botName;
-    @Value("${bot.token:7572504508:AAGyiB5N5nE0mDgRCSPLi53Ezin5ApYvMmQ}")
+    @Value("${bot.token}")
     private String token;
 
 }

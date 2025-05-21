@@ -12,7 +12,7 @@ java {
 project.ext {
     lombokVersion = '1.18.30'
     springBootVersion = '2.7.18'
-    telegramVersion = '5.0.1'
+    telegramVersion = '5.3.0'
 }
 
 group = 'org.example'
@@ -30,7 +30,6 @@ dependencies {
     implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
     implementation group: 'org.telegram', name: 'telegrambots', version: telegramVersion
     implementation group: 'org.telegram', name: 'telegrambotsextensions', version: telegramVersion
-    //implementation group: 'org.projectlombok', name: 'lombok', version: lombokVersion
 
     testImplementation group: 'org.springframework.boot', name :'spring-boot-starter-test', version: springBootVersion
 
