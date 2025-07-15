@@ -27,6 +27,7 @@ public final class Bot extends TelegramLongPollingCommandBot {
         register(new GNVPCommand("/gnvp", "Рассчитать требуемую плотность бурового раствора по избыточному давлению"));
         register(new BPJCommand("/bpj", "Рассчитать объемы скважины, трубного и затрубного пространства"));
         register(new PumpingTimeCommand("/pumping", "Рассчитать время прокачки пачки"));
+        register(new StickingCommand("/sticking", "Определить тип прихвата"));
         register(new HelpCommand("/help", "Помощь"));
     }
 
